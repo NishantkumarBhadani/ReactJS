@@ -1,0 +1,32 @@
+**Steps to use the user context
+
+1.Create Context.js file
+    import React from "react";
+    import { createContext } from "react";
+    const UserContext=createContext()
+    export default UserContext
+
+*NOTE:-useContext provides a provider,it provides the data to every components which is wrapped under
+that provider
+
+2.Create userContextProvider in Context folder
+    Here we have to write the functionlaties of userContextProvider since
+    it will provides the data to the component which are wrapped under UserContext
+
+    Syntax:-
+                    import React from "react";
+                    import UserContext from "./Context";
+
+                    const UsercontextProvider=({children})=>{
+                        const [user,setUser]=React.useState(null)
+                        return(
+                            <UserContext.Provider value={{user,setUser}}>
+                                {children}
+                            </UserContext.Provider>
+                        )
+                    }
+                    export default UsercontextProvider
+
+
+             Here VAlue can have all the data in the objects form which are to be given all the component
+             wrapped under the UserContext.Provider       

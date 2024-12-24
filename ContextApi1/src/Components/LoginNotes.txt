@@ -1,0 +1,11 @@
+const {setUser}=useContext(UserContext)
+const handleSubmit=(e)=>{
+    e.preventDefault();
+    setUser({username,password})
+}
+
+--> Here we are providing the values of useername and password to the 
+    setUser function which was made in the UsercontextProvider
+    by which we are giving the alues of user and the password to the 
+    context so the that it can be provided when we required like 
+    when we login my name shoulb be show at Dashboard

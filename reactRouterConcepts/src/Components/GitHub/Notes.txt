@@ -1,0 +1,22 @@
+UseLoader:If we just hover on the github icon it will start fetching the api even not clicking 
+on the icon infact faster then the useEEfect.
+
+How to use:
+
+1.import { useLoaderData } from 'react-router-dom'
+2.Under the function make a state
+    --> const data=useLoaderData() <--
+    Now you can use this data where ever you need .
+3.In the main file where you are routing
+    {
+        loader:{githubInfoLoader},
+        path:"github",
+        element:<GitHub/>
+     }
+4.the function must be there you can even write the function in the
+routing part i have done here in the github components
+        
+    export const githubInfoLoader=async ()=>{
+    const response=await fetch('https://api.github.com/users/nishantkumarbhadani')
+    return response.json()
+}     

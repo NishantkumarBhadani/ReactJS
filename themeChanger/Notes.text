@@ -1,0 +1,25 @@
+1.Darkmode enambke krne k liye tailwind ki configuration mein 
+      darkMode:"class",
+      isko add krna theme se phle
+
+Essential steps for this
+
+1.first create the theme.js file where we are configuiring every think 
+    in a single file about the useContext ContextProvider.
+
+            import { createContext,useContext } from "react";
+
+            export const ThemeContext=createContext({
+                themeMode:"light",
+                darkTheme:()=>{},
+                lightTheme:()=>{},
+            })
+
+            export const ThemeProvider=ThemeContext.Provider
+
+            export default function useTheme(){
+                return useContext(ThemeContext)
+            }
+
+2. In app.jsx file wrap the whole return statement under ThemeProvider so all the properties can be accessible bt every
+    component used in the UI.            

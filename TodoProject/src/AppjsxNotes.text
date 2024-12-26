@@ -1,0 +1,50 @@
+***Functions explainations
+
+1.... const addTodo=(todo)=>{
+      setTodos((oldTodos)=>[{id:Date.now(),...todo},...oldTodos])
+      }
+
+     Explaination:Here addTodo is taking one todo  that can be added which is coming from the input box ok
+                 Now setTodo has access of all oldTodos and now new todo will be addes to the existing oldTodos
+                 Since todo is in object form so i have given id date,now to each todo 
+                 and ...todo is representong everything else present in the todo such as todo's message
+                 completed or not completed.. 
+
+2....
+        const updateTodo=(id,todo)=>{
+        setTodos((oldTodos)=>oldTodos.map((oldTodo)=>(oldTodo.id===id ? todo:oldTodo)))
+        }      
+
+Explaination:Here updateTodo has access of id and the message that is to be edited.Settodo has all the oldTodos 
+             now we implement map function in the oldtodos and finding that todo whose id is matched with the id which 
+             is to be edited and then after condition checking we are uptading the todo and if not matching then leaving the 
+             oldTodo as it is.
+
+3....
+            const deleteTodo=(id)=>{
+            setTodos((oldTodos)=>oldTodos.filter((oldTodo)=>(oldTodo.id!==id)))
+            }             
+
+Explaination:Here we have just used the filter fuction that is making a nwe array without that todo whose id is matched 
+
+4....
+            const toggleComplete=(id)=>{
+            setTodos((oldTodos)=>oldTodos.map((oldTodo)=>oldTodo.id===id ? {...oldTodo,completed:!oldTodo.completed}:oldTodo))
+            }
+
+Explaination:Here we have to change the completed in todos objects so everything just same we only find that today and do the
+             opposite of the previous value in completed and retaining the todo message
+                            
+
+5...
+            useEffect(()=>{
+            const todos=JSON.parse(localStorage.getItem("keyy"))
+
+            if(todos && todos.length>0){
+                setTodos(todos);
+            }
+            },[])
+
+Explaination: Since we need all the todos which are listed previously which we can get from the local storage.Local storage takes to argument one is "key" 
+                and second one is "string" and it has elements in json format.            
+                    

@@ -1,0 +1,34 @@
+const [todo,setTodo]=useState("")
+
+  const {addTodo}=useTodo();
+
+  const add=(e)=>{
+    e.preventDefault()
+
+    if(!todo) return
+
+    addTodo({/*id:Date.now*/ todo:todo,completed:false})
+    setTodo("")
+  }
+
+
+  const [todo,setTodo]=useState(""):Taken for managing the individual todos
+
+  const {addTodo}=useTodo():Takin the addTodo function from the useTodo context
+
+  const add=(e)=>{
+    e.preventDefault()
+
+    if(!todo) return
+
+    addTodo({/*id:Date.now*/ todo:todo,completed:false})
+    setTodo("")
+  }
+
+  This is the add function for the every todo which is being wtitten in the input box.
+addTodo takes the id since we have already declared it in the app .js so no need to rewritw it again here
+then it takes the todo message since key and value name is same write single todo
+and then completed is by default false.
+
+since after adding the todo we have to cleaar the input box so setTodo is being cleared
+by setTodo("")

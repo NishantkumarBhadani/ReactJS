@@ -1,0 +1,55 @@
+---> import { createSlice,nanoid } from "@reduxjs/toolkit"
+Explaination:
+            we have imported createSlice which is used to make the slices 
+            and nanoid for ginving unique id.
+
+--->  const initialState={
+        todos:[
+            {
+                id:1,text:"Hello World"
+            }
+        ]
+    }
+Explaination:   
+            This is the initialState where all the todos which are already there exist.Simply understand as prototype.
+
+
+--->   export const todoslice=createSlice({
+        name:'todo',
+        initialState,
+        reducers:{
+            addTodo:(state,action)=>{
+                const todo={
+                    id:nanoid,
+                    text:action.payload
+                }
+                //now pushing the new todo in our initialstate
+
+                state.todos.push(todo)
+            }
+            removeTodo:(state,action)=>{
+            state.todos=state.todos.filter((todo)=>todo.id!==action.payload)
+        }
+        }
+Explaination: 
+            Here cration of slice is being done.where name indicates the names of the slices it is syntax
+            >>initialState is giving the access of all existing todos.
+            >>reducers acts as a functions which posses all the functionalitis.
+            >> addTodo:(state,action)
+                        Here state has the access of all priviou todos and action represent the action is to be done or the value coming from the UI.
+            >> const todo={
+                    id=nanoid,
+                    text=action.payload 
+                } 
+                Here text=action.payload.text should be there since same name so only 
+                      text=action.payload is used it is giving the access of the text.
+            
+            >>  state.todos.push(todo):Adding the newly addes todo to the state means the intialState where all todos were there            
+
+---> export const{addTodo,removeTodo,updateTodo}=todoslice.actions
+Explaination: 
+            Exporting the functionality for the components so that they can acces these method.
+
+--->  export default todoslice.reducer
+Explaination: 
+            Since store must have the access of all these reducers.
